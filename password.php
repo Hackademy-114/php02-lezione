@@ -3,9 +3,9 @@
 // almeno un carattere numerico
 //almeno una maiuscola
 //almeno un carattere speciale
+$password = readline('Inserisci la tua password: ');
 
 //!come il prompt in js - readline()
-$password = readline('Inserisci la tua password: ');
 // echo $password;
 
 // almeno 8 caratteri - strlen - dà la lunghezza di una stringa
@@ -112,22 +112,24 @@ function checkPassword($string)
     // $thirdrule = checkUpper($string);
     // $fourthrule = checkSpecials($string, SPECIALS);
     // if ($firstrule  && $secondrule && $thirdrule && $fourthrule) {
-        // echo "password accettata";
+    // echo "password accettata";
     //     return true;
     // } else {
-        // echo "password non accettata";
+    // echo "password non accettata";
 
     //     return false;
     // }
     return checkLength($string) && checkNumber($string) && checkUpper($string) && checkSpecials($string, SPECIALS);
-
 }
 
-var_dump(checkPassword($password));
 
-if(checkPassword($password)){
-    echo "Password accettata! \n";
-}else{
-    echo "Password non accettata! \n";
+do {
+    $password = readline('Inserisci la tua password: ');
+} while (checkPassword($password) ==false);
 
-}
+// if(checkPassword($password)){
+//     echo "Password accettata! \n";
+// }else{
+//     echo "Password non accettata! \n";
+
+// }
